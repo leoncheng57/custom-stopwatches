@@ -1,4 +1,14 @@
 extends layout
+
+mixin container(name)
+    div.container
+        p.title= name 
+
+
 block content
     div#wrapper
         p hello there
+        +container("Stopwatch #1")
+        +container("Stopwatch #2")
+        +container("Stopwatch #3")
+        +container("Stopwatch #4")
