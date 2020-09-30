@@ -1,9 +1,12 @@
 console.log('time.js');
 
 class Timer {
-    constructor(duration) {
-        this.duration = duration;
+    constructor() {
         this.startTime = null;
+    }
+
+    set(duration) {
+        this.duration = duration;
     }
 
     start() {
@@ -28,7 +31,8 @@ class Timer {
     }
 }
 
-var timerOne = new Timer(30);
+var timerOne = new Timer();
+timerOne.set(30);
 timerOne.start();
 
 
@@ -36,6 +40,9 @@ console.log();
 var containerOne = document.getElementsByClassName("container")[0];
 var displayTimeOne = containerOne.getElementsByClassName("displayTime")[0];
 
-setInterval(function(){
-    displayTimeOne.innerHTML = timerOne.getDisplayTime();
-}, 100)
+var startButtonOne = containerOne.getElementsByClassName("start")[0];
+startButtonOne.addEventListener("click", function() {
+    setInterval(function(){
+        displayTimeOne.innerHTML = timerOne.getDisplayTime();
+    }, 100)
+})
