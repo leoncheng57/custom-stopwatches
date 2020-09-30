@@ -12,6 +12,7 @@ mixin container(name)
 block content
     div#wrapper
         p hello there
+        +container("template-stopwatch")
         +container("Stopwatch #1")
         +container("Stopwatch #2")
         +container("Stopwatch #3")

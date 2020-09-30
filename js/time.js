@@ -46,3 +46,8 @@ startButtonOne.addEventListener("click", function() {
         displayTimeOne.innerHTML = timerOne.getDisplayTime();
     }, 100)
 })
+
+
+var wrapper = document.getElementById("wrapper");
+wrapper.appendChild(containerOne.cloneNode(true));
+wrapper.appendChild(containerOne.cloneNode(true));
