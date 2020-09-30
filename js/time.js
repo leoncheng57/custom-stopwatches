@@ -1,3 +1,5 @@
+console.log('time.js');
+
 class Timer {
     constructor(duration) {
         this.duration = duration;
@@ -6,22 +8,28 @@ class Timer {
 
     start() {
         this.startTime = new Date();
-        this.counter = setInterval(function(){console.log('tick')}, 1000);
     }
 
-    getTime() {
+    getTimePassed() {
         const now = new Date();
         const millisPassed = now - this.startTime;
         return millisPassed / 1000;
+    }
+
+    getTimeLeft() {
+        return this.duration - this.getTimePassed();
     }
 }
 
 var timerOne = new Timer(30);
 timerOne.start();
 
-setInterval(function(){
-    const secondsPassed = timerOne.getTime();
-    console.log(secondsPassed);
-}, 1000)
 
-console.log('time.js');
+console.log();
+var containerOne = document.getElementsByClassName("container")[0];
+var displayTimeOne = containerOne.getElementsByClassName("displayTime")[0];
+
+setInterval(function(){
+    const secondsLeft = timerOne.getTimeLeft();
+    displayTimeOne.innerHTML = secondsLeft;
+}, 100)
