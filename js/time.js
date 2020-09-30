@@ -19,6 +19,13 @@ class Timer {
     getTimeLeft() {
         return this.duration - this.getTimePassed();
     }
+
+    getDisplayTime() {
+        const precise = this.getTimeLeft();
+        const seconds = Math.floor(precise);
+        const millis = Math.floor((precise % 1) * 100);
+        return `${seconds}:${millis}`;
+    }
 }
 
 var timerOne = new Timer(30);
@@ -30,6 +37,5 @@ var containerOne = document.getElementsByClassName("container")[0];
 var displayTimeOne = containerOne.getElementsByClassName("displayTime")[0];
 
 setInterval(function(){
-    const secondsLeft = timerOne.getTimeLeft();
-    displayTimeOne.innerHTML = secondsLeft;
+    displayTimeOne.innerHTML = timerOne.getDisplayTime();
 }, 100)
