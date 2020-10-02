@@ -5,6 +5,7 @@ class Timer {
         this.startTime = null;
         this.duration = null;
         this.interval = null;
+        this.running = false;
 
         // Create a clone out of the hidden-stopwatch Node
         const containerOne = document.getElementsByClassName("hidden-stopwatch")[0];
@@ -42,9 +43,12 @@ class Timer {
 
     start() {
         this.startTime = new Date();
-        this.interval = setInterval(() => {
-            this.setDisplayTime(this.getTimeLeft());
-        }, 100)
+        if (this.running == false){
+            this.running = true;
+            this.interval = setInterval(() => {
+                this.setDisplayTime(this.getTimeLeft());
+            }, 100)
+        }
     }
 
     stop() {
@@ -54,6 +58,7 @@ class Timer {
 
     reset() {
         clearInterval(this.interval);
+        this.running = false;
         this.setDisplayTime(this.convertTimeToString(this.duration));
     }
 
