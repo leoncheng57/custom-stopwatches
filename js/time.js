@@ -20,18 +20,19 @@ class Timer {
         this.displayTime = this.theStopwatch.getElementsByClassName("displayTime")[0];
         this.title = this.theStopwatch.getElementsByClassName("title")[0];
         
-        var THIS = this;
         // Set Title
         this.title.innerHTML = title;
         // Set Button Listeners
-        this.startButton.addEventListener("click", function() {
-            THIS.start();
+        this.startButton.addEventListener("click", () => {
+            this.start();
         })
-        // TODO: listener for stop button
-        this.stopButton.addEventListener("click", function() {
-            THIS.stop();
+        this.stopButton.addEventListener("click", () => {
+            this.stop();
         })
         // TODO: listener for reset button
+        this.resetButton.addEventListener("click", () => {
+            this.reset();
+        })
     }
 
     set(hours, minutes, seconds, millis) {
@@ -41,14 +42,19 @@ class Timer {
 
     start() {
         this.startTime = new Date();
-        var THIS = this;
-        this.interval = setInterval(function(){
-            THIS.setDisplayTime(THIS.getTimeLeft());
+        this.interval = setInterval(() => {
+            this.setDisplayTime(this.getTimeLeft());
         }, 100)
     }
 
     stop() {
+        //TODO: implement this 
+        console.log("inside stop");
+    }
+
+    reset() {
         clearInterval(this.interval);
+        this.setDisplayTime(this.convertTimeToString(this.duration));
     }
 
     convertTimeToString(totalMillis) {
