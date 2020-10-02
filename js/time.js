@@ -1,17 +1,28 @@
 console.log('time.js');
 
 class Timer {
-    constructor() {
+    constructor(title) {
         this.startTime = null;
+        this.duration = null;
+
+        // Create a clone out of the hidden-stopwatch Node
         const containerOne = document.getElementsByClassName("hidden-stopwatch")[0];
         const wrapper = document.getElementById("wrapper");
         this.theStopwatch = containerOne.cloneNode(true);
         this.theStopwatch.className = "regular-stopwatch";
         wrapper.appendChild(this.theStopwatch);
 
-        const startButton = this.theStopwatch.getElementsByClassName("start")[0];
+        // Make class variables out of the html components
+        this.startButton = this.theStopwatch.getElementsByClassName("start")[0];
+        this.stopButton = this.theStopwatch.getElementsByClassName("stop")[0];
+        this.resetButton = this.theStopwatch.getElementsByClassName("reset")[0];
+        this.displayTime = this.theStopwatch.getElementsByClassName("displayTime")[0];
+        this.title = this.theStopwatch.getElementsByClassName("title")[0];
+        
+        
+        this.title.innerHTML = title;
         var THIS = this;
-        startButton.addEventListener("click", function() {
+        this.startButton.addEventListener("click", function() {
             THIS.start();
             setInterval(function(){
                 THIS.setDisplayTime(THIS.getTimeLeft());
@@ -35,8 +46,7 @@ class Timer {
     }
 
     setDisplayTime(text) {
-        const displayTime = this.theStopwatch.getElementsByClassName("displayTime")[0];
-        displayTime.innerHTML = text;
+        this.displayTime.innerHTML = text;
     }
 
     getTimePassed() {
@@ -51,8 +61,8 @@ class Timer {
 }
 
 
-new Timer().set(5);
-new Timer().set(10);
-new Timer().set(20);
-new Timer().set(30);
+new Timer("A").set(5);
+new Timer("B").set(10);
+new Timer("C").set(20);
+new Timer("D").set(30);
 
