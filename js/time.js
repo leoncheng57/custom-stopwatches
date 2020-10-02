@@ -4,6 +4,9 @@ class Timer {
     constructor(title) {
         this.startTime = null;
         this.duration = null;
+        this.interval = null;
+        this.running = false;
+        this.timeElapsedStored = 0;
 
         // Create a clone out of the hidden-stopwatch Node
         const containerOne = document.getElementsByClassName("hidden-stopwatch")[0];
@@ -19,50 +22,81 @@ class Timer {
         this.displayTime = this.theStopwatch.getElementsByClassName("displayTime")[0];
         this.title = this.theStopwatch.getElementsByClassName("title")[0];
         
-        
+        // Set Title
         this.title.innerHTML = title;
-        var THIS = this;
-        this.startButton.addEventListener("click", function() {
-            THIS.start();
-            setInterval(function(){
-                THIS.setDisplayTime(THIS.getTimeLeft());
-            }, 100)
+        // Set Button Listeners
+        this.startButton.addEventListener("click", () => {
+            this.start();
+        })
+        this.stopButton.addEventListener("click", () => {
+            this.stop();
+        })
+        // TODO: listener for reset button
+        this.resetButton.addEventListener("click", () => {
+            this.reset();
         })
     }
 
-    set(duration) {
-        this.duration = duration;
-        this.setDisplayTime(this.convertSecondsToString(duration));
+    set(hours, minutes, seconds, millis) {
+        this.duration = millis + seconds*1000 + minutes*60*1000 + hours*60*60*1000;
+        this.setDisplayTime(this.convertTimeToString(this.duration));
     }
 
     start() {
         this.startTime = new Date();
+        if (this.running == false){
+            this.running = true;
+            this.interval = setInterval(() => {
+                this.updateTimer();}, 
+                100)
+        }
     }
 
-    convertSecondsToString(seconds) {
-        const secsRounded = Math.floor(seconds);
-        const millis = Math.floor((seconds % 1) * 100);
-        return `${secsRounded}:${millis}`;
+    stop() {
+        if (this.running != false) {
+            this.timeElapsedStored += this.getTimeElapsedSinceLastStart();
+            clearInterval(this.interval);
+            this.running = false;
+            this.startTime = null;
+        }
+    }
+
+    reset() {
+        this.stop();
+        this.timeElapsedStored = 0;
+        this.setDisplayTime(this.convertTimeToString(this.duration));
+    }
+
+    convertTimeToString(totalMillis) {
+        const hours = Math.floor(totalMillis/(60*60*1000));
+        totalMillis = totalMillis - hours*60*60*1000;
+        const minutes = Math.floor(totalMillis/(60*1000));
+        totalMillis = totalMillis - minutes*60*1000;
+        const seconds = Math.floor(totalMillis/1000);
+        const remMillis = totalMillis % 1000;
+        return `${hours}:${minutes}:${seconds}:${remMillis}`;
     }
 
     setDisplayTime(text) {
         this.displayTime.innerHTML = text;
     }
 
-    getTimePassed() {
+    getTimeElapsedSinceLastStart() {
         const now = new Date();
         const millisPassed = now - this.startTime;
-        return millisPassed / 1000;
+        return millisPassed;
     }
 
-    getTimeLeft() {
-        return this.convertSecondsToString(this.duration - this.getTimePassed());
+    updateTimer() {
+        const timeElapsed = this.getTimeElapsedSinceLastStart() + this.timeElapsedStored;
+        const timeRemaining = this.duration - timeElapsed;
+        this.setDisplayTime(this.convertTimeToString(timeRemaining));
     }
 }
 
 
-new Timer("A").set(5);
-new Timer("B").set(10);
-new Timer("C").set(20);
-new Timer("D").set(30);
+new Timer("A").set(0, 5, 0, 0);
+new Timer("B").set(0, 10, 0, 0);
+new Timer("C").set(0, 30, 0, 0);
+new Timer("D").set(1, 0, 0, 0);
 

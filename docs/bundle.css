@@ -1,1 +1,1 @@
-body{box-sizing:border-box}.container{display:inline-block;border:1px solid gray;margin:2em;padding:1em;width:20em;height:10em}.title{font-weight:600;font-size:2em}
+#header{font-size:3em;margin:1em}.regular-stopwatch{display:inline-block;border:1px solid gray;margin:2em;padding:1em;width:20em}.title{font-weight:600;font-size:2em}button{padding:.5em;margin:1em}button .start{background-color:green}button .stop{background-color:red}body{box-sizing:border-box}body *{font-family:"Lato"}p{margin:.5em}.hidden-stopwatch{display:none}
