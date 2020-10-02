@@ -19,8 +19,9 @@ class Timer {
         this.displayTime = this.theStopwatch.getElementsByClassName("displayTime")[0];
         this.title = this.theStopwatch.getElementsByClassName("title")[0];
         
-        
+        // Set Title
         this.title.innerHTML = title;
+        // Set Button Listeners
         var THIS = this;
         this.startButton.addEventListener("click", function() {
             THIS.start();
@@ -28,21 +29,27 @@ class Timer {
                 THIS.setDisplayTime(THIS.getTimeLeft());
             }, 100)
         })
+        // TODO: listener for stop button
+        // TODO: listener for reset button
     }
 
-    set(duration) {
-        this.duration = duration;
-        this.setDisplayTime(this.convertSecondsToString(duration));
+    set(hours, minutes, seconds, millis) {
+        this.duration = millis + seconds*1000 + minutes*60*1000 + hours*60*60*1000;
+        this.setDisplayTime(this.convertTimeToString(this.duration));
     }
 
     start() {
         this.startTime = new Date();
     }
 
-    convertSecondsToString(seconds) {
-        const secsRounded = Math.floor(seconds);
-        const millis = Math.floor((seconds % 1) * 100);
-        return `${secsRounded}:${millis}`;
+    convertTimeToString(totalMillis) {
+        const hours = Math.floor(totalMillis/(60*60*1000));
+        totalMillis = totalMillis - hours*60*60*1000;
+        const minutes = Math.floor(totalMillis/(60*1000));
+        totalMillis = totalMillis - minutes*60*1000;
+        const seconds = Math.floor(totalMillis/1000);
+        const remMillis = totalMillis % 1000;
+        return `${hours}:${minutes}:${seconds}:${remMillis}`;
     }
 
     setDisplayTime(text) {
@@ -52,17 +59,17 @@ class Timer {
     getTimePassed() {
         const now = new Date();
         const millisPassed = now - this.startTime;
-        return millisPassed / 1000;
+        return millisPassed;
     }
 
     getTimeLeft() {
-        return this.convertSecondsToString(this.duration - this.getTimePassed());
+        return this.convertTimeToString(this.duration - this.getTimePassed());
     }
 }
 
 
-new Timer("A").set(5);
-new Timer("B").set(10);
-new Timer("C").set(20);
-new Timer("D").set(30);
+new Timer("A").set(0, 5, 0, 0);
+new Timer("B").set(0, 10, 0, 0);
+new Timer("C").set(0, 30, 0, 0);
+new Timer("D").set(1, 0, 0, 0);
 
