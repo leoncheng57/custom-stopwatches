@@ -1,19 +1,19 @@
-
+@import 'header';
+@import 'stopwatch';
 
 body {
     box-sizing: border-box;
 }
 
-.container {
-    display: inline-block;
-    border: 1px solid gray;
-    margin: 2em;
-    padding: 1em;
-    width: 20em;
-    height: 10em;
+body * {
+    font-family: "Lato";
 }
 
-.title {
-    font-weight: 600;
-    font-size: 2em;
+
+p {
+    margin: 0.5em;
+}
+
+.hidden-stopwatch {
+    display: none;
 }

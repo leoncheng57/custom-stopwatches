@@ -1,14 +1,15 @@
 extends layout
 
-mixin container(name)
-    div.container
+mixin container(cn, name)
+    div(class=cn)
         p.title= name 
+        p.displayTime 00:00:00
+        button.start Start
+        button.stop Stop
+        button.reset Reset
 
 
 block content
+    div#header Custom Stopwatches
     div#wrapper
-        p hello there
-        +container("Stopwatch #1")
-        +container("Stopwatch #2")
-        +container("Stopwatch #3")
-        +container("Stopwatch #4")
+        +container("hidden-stopwatch","template-stopwatch")
