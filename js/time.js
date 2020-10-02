@@ -13,19 +13,26 @@ class Timer {
         const startButton = this.theStopwatch.getElementsByClassName("start")[0];
         var THIS = this;
         startButton.addEventListener("click", function() {
+            THIS.start();
             setInterval(function(){
-                THIS.setDisplayTime();
+                THIS.setDisplayTime(THIS.getTimeLeft());
             }, 100)
         })
     }
 
     set(duration) {
         this.duration = duration;
-        this.theStopwatch.getElementsByClassName("displayTime")[0] = "bro";
+        this.setDisplayTime(this.convertSecondsToString(duration));
     }
 
     start() {
         this.startTime = new Date();
+    }
+
+    convertSecondsToString(seconds) {
+        const secsRounded = Math.floor(seconds);
+        const millis = Math.floor((seconds % 1) * 100);
+        return `${secsRounded}:${millis}`;
     }
 
     getTimePassed() {
@@ -35,19 +42,15 @@ class Timer {
     }
 
     getTimeLeft() {
-        return this.duration - this.getTimePassed();
-    }
-
-    getDisplayTime() {
-        const precise = this.getTimeLeft();
+        const precise = this.duration - this.getTimePassed();
         const seconds = Math.floor(precise);
         const millis = Math.floor((precise % 1) * 100);
         return `${seconds}:${millis}`;
     }
 
-    setDisplayTime() {
+    setDisplayTime(text) {
         const displayTime = this.theStopwatch.getElementsByClassName("displayTime")[0];
-        displayTime.innerHTML = this.getDisplayTime();
+        displayTime.innerHTML = text;
     }
 }
 
@@ -55,18 +58,6 @@ var numStopwatches = 1;
 
 var timerOne = new Timer();
 timerOne.set(30);
-timerOne.start();
 var timerTwo = new Timer();
 timerTwo.set(60);
-
-// var containerOne = document.getElementsByClassName("container")[0];
-
-// var displayTimeOne = containerOne.getElementsByClassName("displayTime")[0];
-
-// var startButtonOne = containerOne.getElementsByClassName("start")[0];
-// startButtonOne.addEventListener("click", function() {
-//     setInterval(function(){
-//         displayTimeOne.innerHTML = timerOne.getDisplayTime();
-//     }, 100)
-// })
 
