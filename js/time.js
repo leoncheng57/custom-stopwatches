@@ -3,7 +3,6 @@ console.log('time.js');
 class Timer {
     constructor() {
         this.startTime = null;
-        numStopwatches += 1;
         const containerOne = document.getElementsByClassName("hidden-stopwatch")[0];
         const wrapper = document.getElementById("wrapper");
         this.theStopwatch = containerOne.cloneNode(true);
@@ -35,6 +34,11 @@ class Timer {
         return `${secsRounded}:${millis}`;
     }
 
+    setDisplayTime(text) {
+        const displayTime = this.theStopwatch.getElementsByClassName("displayTime")[0];
+        displayTime.innerHTML = text;
+    }
+
     getTimePassed() {
         const now = new Date();
         const millisPassed = now - this.startTime;
@@ -42,22 +46,13 @@ class Timer {
     }
 
     getTimeLeft() {
-        const precise = this.duration - this.getTimePassed();
-        const seconds = Math.floor(precise);
-        const millis = Math.floor((precise % 1) * 100);
-        return `${seconds}:${millis}`;
-    }
-
-    setDisplayTime(text) {
-        const displayTime = this.theStopwatch.getElementsByClassName("displayTime")[0];
-        displayTime.innerHTML = text;
+        return this.convertSecondsToString(this.duration - this.getTimePassed());
     }
 }
 
-var numStopwatches = 1;
 
-var timerOne = new Timer();
-timerOne.set(30);
-var timerTwo = new Timer();
-timerTwo.set(60);
+new Timer().set(5);
+new Timer().set(10);
+new Timer().set(20);
+new Timer().set(30);
 
