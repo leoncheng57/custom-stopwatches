@@ -4,6 +4,7 @@ class Timer {
     constructor(title) {
         this.startTime = null;
         this.duration = null;
+        this.interval = null;
 
         // Create a clone out of the hidden-stopwatch Node
         const containerOne = document.getElementsByClassName("hidden-stopwatch")[0];
@@ -19,17 +20,17 @@ class Timer {
         this.displayTime = this.theStopwatch.getElementsByClassName("displayTime")[0];
         this.title = this.theStopwatch.getElementsByClassName("title")[0];
         
+        var THIS = this;
         // Set Title
         this.title.innerHTML = title;
         // Set Button Listeners
-        var THIS = this;
         this.startButton.addEventListener("click", function() {
             THIS.start();
-            setInterval(function(){
-                THIS.setDisplayTime(THIS.getTimeLeft());
-            }, 100)
         })
         // TODO: listener for stop button
+        this.stopButton.addEventListener("click", function() {
+            THIS.stop();
+        })
         // TODO: listener for reset button
     }
 
@@ -40,6 +41,14 @@ class Timer {
 
     start() {
         this.startTime = new Date();
+        var THIS = this;
+        this.interval = setInterval(function(){
+            THIS.setDisplayTime(THIS.getTimeLeft());
+        }, 100)
+    }
+
+    stop() {
+        clearInterval(this.interval);
     }
 
     convertTimeToString(totalMillis) {
