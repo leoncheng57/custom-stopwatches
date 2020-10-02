@@ -3,6 +3,10 @@ console.log('time.js');
 class Timer {
     constructor() {
         this.startTime = null;
+        numStopwatches += 1;
+        const containerOne = document.getElementsByClassName("container")[0];
+        const wrapper = document.getElementById("wrapper");
+        wrapper.appendChild(containerOne.cloneNode(true));
     }
 
     set(duration) {
@@ -31,6 +35,8 @@ class Timer {
     }
 }
 
+var numStopwatches = 1;
+
 var timerOne = new Timer();
 timerOne.set(30);
 timerOne.start();
@@ -47,7 +53,3 @@ startButtonOne.addEventListener("click", function() {
     }, 100)
 })
 
-
-var wrapper = document.getElementById("wrapper");
-wrapper.appendChild(containerOne.cloneNode(true));
-wrapper.appendChild(containerOne.cloneNode(true));

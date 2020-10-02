@@ -1,7 +1,7 @@
 extends layout
 
-mixin container(name)
-    div.container
+mixin container(cn, name)
+    div(class=cn)
         p.title= name 
         p.displayTime 00:00:00
         button.start Start
@@ -10,10 +10,7 @@ mixin container(name)
 
 
 block content
+    div#header Custom Stopwatches
     div#wrapper
-        p hello there
-        +container("template-stopwatch")
-        +container("Stopwatch #1")
-        +container("Stopwatch #2")
-        +container("Stopwatch #3")
-        +container("Stopwatch #4")
+        +container("hidden-stopwatch","template-stopwatch")
+        +container("container", "Stopwatch #1")

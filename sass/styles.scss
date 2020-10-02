@@ -1,4 +1,5 @@
-
+@import 'header';
+@import 'stopwatch';
 
 body {
     box-sizing: border-box;
@@ -8,33 +9,11 @@ body * {
     font-family: "Lato";
 }
 
-.container {
-    display: inline-block;
-    border: 1px solid gray;
-    margin: 2em;
-    padding: 1em;
-    width: 20em;
-    height: 10em;
-}
-
-.title {
-    font-weight: 600;
-    font-size: 2em;
-}
 
 p {
     margin: 0.5em;
 }
 
-button {
-    padding: 0.5em;
-    margin: 1em;
-
-    .start {
-        background-color: green;
-    }
-    
-    .stop {
-        background-color: red;
-    }
+.hidden-stopwatch {
+    display: none;
 }

@@ -1,0 +1,25 @@
+.container {
+  display: inline-block;
+  border: 1px solid gray;
+  margin: 2em;
+  padding: 1em;
+  width: 20em;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 2em;
+}
+
+button {
+  padding: 0.5em;
+  margin: 1em;
+
+  .start {
+      background-color: green;
+  }
+  
+  .stop {
+      background-color: red;
+  }
+}
