@@ -53,12 +53,12 @@ class Timer {
     }
 
     stop() {
-        //TODO: implement this 
-        this.timeElapsedStored += this.getTimeElapsedSinceLastStart();
-        clearInterval(this.interval);
-        this.running = false;
-        this.startTime = null;
-        
+        if (this.running != false) {
+            this.timeElapsedStored += this.getTimeElapsedSinceLastStart();
+            clearInterval(this.interval);
+            this.running = false;
+            this.startTime = null;
+        }
     }
 
     reset() {
