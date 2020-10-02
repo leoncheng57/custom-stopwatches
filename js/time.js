@@ -6,6 +6,7 @@ class Timer {
         this.duration = null;
         this.interval = null;
         this.running = false;
+        this.timeElapsedStored = 0;
 
         // Create a clone out of the hidden-stopwatch Node
         const containerOne = document.getElementsByClassName("hidden-stopwatch")[0];
@@ -46,19 +47,23 @@ class Timer {
         if (this.running == false){
             this.running = true;
             this.interval = setInterval(() => {
-                this.setDisplayTime(this.getTimeLeft());
-            }, 100)
+                this.updateTimer();}, 
+                100)
         }
     }
 
     stop() {
         //TODO: implement this 
-        console.log("inside stop");
+        this.timeElapsedStored += this.getTimeElapsedSinceLastStart();
+        clearInterval(this.interval);
+        this.running = false;
+        this.startTime = null;
+        
     }
 
     reset() {
-        clearInterval(this.interval);
-        this.running = false;
+        this.stop();
+        this.timeElapsedStored = 0;
         this.setDisplayTime(this.convertTimeToString(this.duration));
     }
 
@@ -76,14 +81,16 @@ class Timer {
         this.displayTime.innerHTML = text;
     }
 
-    getTimePassed() {
+    getTimeElapsedSinceLastStart() {
         const now = new Date();
         const millisPassed = now - this.startTime;
         return millisPassed;
     }
 
-    getTimeLeft() {
-        return this.convertTimeToString(this.duration - this.getTimePassed());
+    updateTimer() {
+        const timeElapsed = this.getTimeElapsedSinceLastStart() + this.timeElapsedStored;
+        const timeRemaining = this.duration - timeElapsed;
+        this.setDisplayTime(this.convertTimeToString(timeRemaining));
     }
 }
 
