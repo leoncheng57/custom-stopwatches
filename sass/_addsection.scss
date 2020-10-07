@@ -1,0 +1,21 @@
+#addsection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  #addcontainer {
+    background-color: $pewter-blue;
+    border-radius: 100%;
+    margin: 3em;
+    width: 8em;
+    height: 8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    p {
+      font-size: 5em;
+    }
+  }
+}
