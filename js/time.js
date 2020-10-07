@@ -31,7 +31,6 @@ class Timer {
         this.stopButton.addEventListener("click", () => {
             this.stop();
         })
-        // TODO: listener for reset button
         this.resetButton.addEventListener("click", () => {
             this.reset();
         })
@@ -94,9 +93,5 @@ class Timer {
     }
 }
 
-
-new Timer("A").set(0, 5, 0, 0);
-new Timer("B").set(0, 10, 0, 0);
-new Timer("C").set(0, 30, 0, 0);
-new Timer("D").set(1, 0, 0, 0);
+module.exports = Timer;
 
