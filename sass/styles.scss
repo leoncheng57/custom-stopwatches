@@ -1,12 +1,21 @@
+/* SCSS RGB */
+$emerald: rgba(35, 206, 107, 1);
+$redwood: rgba(173, 93, 78, 1);
+$pewter-blue: rgba(112, 160, 175, 1);
+$jet: rgba(48, 43, 39, 1);
+$cultured: rgba(245, 243, 245, 1);
+
 @import 'header';
 @import 'stopwatch';
 
 body {
     box-sizing: border-box;
+    background-color: $jet;
+    color: $cultured;
 }
 
 body * {
-    font-family: "Lato";
+    font-family: "Lato", sans-serif;
 }
 
 
@@ -14,3 +23,8 @@ p {
     margin: 0.5em;
 }
 
+#wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

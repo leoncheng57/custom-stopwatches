@@ -6,7 +6,7 @@ const Timer = require('../js/time.js');
 
 
 
-new Timer("A").setTimer(0, 5, 0, 0);
-new Timer("B").setTimer(0, 10, 0, 0);
-new Timer("C").setTimer(0, 30, 0, 0);
-new Timer("D").setTimer(1, 0, 0, 0);
+new Timer("Task").setTimer(0, 5, 0, 0);
+new Timer("Duty").setTimer(0, 10, 0, 0);
+new Timer("Work").setTimer(0, 30, 0, 0);
+new Timer("Foo").setTimer(1, 0, 0, 0);

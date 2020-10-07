@@ -11,6 +11,9 @@ mixin container(cn, name)
 
 
 block content
-    div#header Custom Stopwatches
+    div#header 
+        hr
+        p Custom Stopwatches
+        hr
     div#wrapper
         +container("hidden-stopwatch","template-stopwatch")

@@ -10,17 +10,18 @@
   padding: 1em;
   width: 20em;
   box-shadow: 2px 2px 8px #888888;
-  background-color: rgb(42, 19, 73);
-  color: white;
+  background-color: $pewter-blue;
+  color: $cultured;
 }
 
 .title {
-  font-weight: 600;
   font-size: 2em;
+  font-weight: 300;
+  text-align: center;
 }
 
 .displayTime {
-  font-size: 2em;
+  font-size: 3em;
   text-align: center;
 }
 
@@ -37,11 +38,11 @@
   }
   
   .start {
-    background-color: rgb(199, 255, 199);
+    background-color:$emerald;
   }
   
   .stop {
-    background-color: rgb(247, 197, 197);
+    background-color:$redwood;
   }
 }
 
