@@ -1,25 +1,48 @@
+.hidden-stopwatch {
+  display: none;
+}
+
 .regular-stopwatch {
   display: inline-block;
   border: 1px solid gray;
+  border-radius: 1.5em;
   margin: 2em;
   padding: 1em;
   width: 20em;
+  box-shadow: 2px 2px 8px #888888;
+  background-color: $pewter-blue;
+  color: $cultured;
 }
 
 .title {
-  font-weight: 600;
   font-size: 2em;
+  font-weight: 300;
+  text-align: center;
 }
 
-button {
-  padding: 0.5em;
-  margin: 1em;
+.displayTime {
+  font-size: 3em;
+  text-align: center;
+}
 
+.timerButtons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  button {
+    padding: 0.5em;
+    margin: 1em;
+    width: 5em;
+  }
+  
   .start {
-      background-color: green;
+    background-color:$emerald;
   }
   
   .stop {
-      background-color: red;
+    background-color:$redwood;
   }
 }
+

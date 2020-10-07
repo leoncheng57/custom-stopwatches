@@ -1,0 +1,27 @@
+#addsection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  #addcontainer {
+    background-color: $pewter-blue;
+    border-radius: 100%;
+    margin: 3em;
+    width: 8em;
+    height: 8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 2px 2px 8px #888888;
+
+    p {
+      font-size: 5em;
+    }
+  }
+
+  #addcontainer:active {
+    box-shadow: inset 0px 0px 18px 8px rgb(197, 197, 197);
+  }
+}

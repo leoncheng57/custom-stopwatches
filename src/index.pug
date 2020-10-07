@@ -4,12 +4,19 @@ mixin container(cn, name)
     div(class=cn)
         p.title= name 
         p.displayTime 00:00:00
-        button.start Start
-        button.stop Stop
-        button.reset Reset
+        div.timerButtons
+            button.start Start
+            button.stop Stop
+            button.reset Reset
 
 
 block content
-    div#header Custom Stopwatches
+    div#header 
+        hr
+        p Custom Stopwatches
+        hr
     div#wrapper
         +container("hidden-stopwatch","template-stopwatch")
+    div#addsection
+        div#addcontainer
+            p#addbutton +

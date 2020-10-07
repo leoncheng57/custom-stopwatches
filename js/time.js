@@ -1,4 +1,4 @@
-console.log('time.js');
+console.log('loading time.js');
 
 class Timer {
     constructor(title) {
@@ -31,17 +31,22 @@ class Timer {
         this.stopButton.addEventListener("click", () => {
             this.stop();
         })
-        // TODO: listener for reset button
         this.resetButton.addEventListener("click", () => {
             this.reset();
         })
     }
 
-    set(hours, minutes, seconds, millis) {
+    // Public Set Methods
+    setTimer(hours, minutes, seconds, millis) {
         this.duration = millis + seconds*1000 + minutes*60*1000 + hours*60*60*1000;
         this.setDisplayTime(this.convertTimeToString(this.duration));
     }
 
+    setTitle(title) {
+        this.title.innerHTML = title;
+    }
+
+    // Private Methods
     start() {
         this.startTime = new Date();
         if (this.running == false){
@@ -74,7 +79,8 @@ class Timer {
         totalMillis = totalMillis - minutes*60*1000;
         const seconds = Math.floor(totalMillis/1000);
         const remMillis = totalMillis % 1000;
-        return `${hours}:${minutes}:${seconds}:${remMillis}`;
+        // return `${hours}:${minutes}:${seconds}:${remMillis}`;
+        return `${hours}:${minutes}:${seconds}`;
     }
 
     setDisplayTime(text) {
@@ -94,9 +100,5 @@ class Timer {
     }
 }
 
-
-new Timer("A").set(0, 5, 0, 0);
-new Timer("B").set(0, 10, 0, 0);
-new Timer("C").set(0, 30, 0, 0);
-new Timer("D").set(1, 0, 0, 0);
+module.exports = Timer;
 
