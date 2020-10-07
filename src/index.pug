@@ -4,9 +4,10 @@ mixin container(cn, name)
     div(class=cn)
         p.title= name 
         p.displayTime 00:00:00
-        button.start Start
-        button.stop Stop
-        button.reset Reset
+        div.timerButtons
+            button.start Start
+            button.stop Stop
+            button.reset Reset
 
 
 block content
