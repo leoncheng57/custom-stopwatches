@@ -1,9 +1,15 @@
 /* SCSS RGB */
 $color1: rgba(35, 206, 107, 1);
 $color2: rgba(173, 93, 78, 1);
-$color3: rgb(4, 81, 105);
-$color4: rgba(48, 43, 39, 1);
+$color3: rgba(48, 107, 172, 1);
+$color4: #302b27;
 $color5: rgba(245, 243, 245, 1);
+$color6: rgba(61, 77, 94, 1);
+$color7: black;
+// $color7: rgba(161, 176, 171, 1);
+// $color7: rgba(135, 138, 137, 1);
+
+
 
 @import 'bigtimer';
 @import 'timerbank';
@@ -40,7 +46,7 @@ p {
 }
 
 #sidebar {
-    background: rgb(88, 88, 88);
+    background: $color6;
     width: 30vw;
     overflow: auto;
     max-height: 100vh;
