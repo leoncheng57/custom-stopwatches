@@ -4,10 +4,10 @@ mixin container(cn, name)
     div(class=cn)
         p.title= name 
         p.displayTime 00:00:00
-        div.timerButtons
-            button.start Start
-            button.stop Stop
-            button.reset Reset
+        //- div.timerButtons
+        //-     button.start Start
+        //-     button.stop Stop
+        //-     button.reset Reset
 
 
 block content
@@ -17,9 +17,9 @@ block content
                 div.numeric 
                     p 12:34:56
                 div.controls
-                    div.icon play icon
-                    div.icon pause icon
-                    div.icon reset icon
+                    div.icon#play play icon
+                    div.icon#pause pause icon
+                    div.icon#reset reset icon
         div#sidebar
             div#timerbank
                 +container("hidden-stopwatch","template-stopwatch")
