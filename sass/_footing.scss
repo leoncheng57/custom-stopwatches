@@ -1,23 +1,27 @@
-#addsection {
+#footing {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: $color7;
+
+  span {
+    margin: 5px;
+  }
 
   #addcontainer {
-    background-color: $pewter-blue;
+    background-color: $color3;
     border-radius: 100%;
-    margin: 3em;
-    width: 8em;
-    height: 8em;
+    margin: 2em;
+    width: 3em;
+    height: 3em;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     cursor: pointer;
-    box-shadow: 2px 2px 8px #888888;
 
     p {
-      font-size: 5em;
+      font-size: 2em;
     }
   }
 

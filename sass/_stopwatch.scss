@@ -4,14 +4,12 @@
 
 .regular-stopwatch {
   display: inline-block;
-  border: 1px solid gray;
   border-radius: 1.5em;
   margin: 2em;
   padding: 1em;
   width: 20em;
-  box-shadow: 2px 2px 8px #888888;
-  background-color: $pewter-blue;
-  color: $cultured;
+  background-color: $color3;
+  color: $color5;
 }
 
 .title {
@@ -38,11 +36,11 @@
   }
   
   .start {
-    background-color:$emerald;
+    background-color:$color1;
   }
   
   .stop {
-    background-color:$redwood;
+    background-color:$color2;
   }
 }
 

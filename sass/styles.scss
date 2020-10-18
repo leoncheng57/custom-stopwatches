@@ -1,18 +1,22 @@
 /* SCSS RGB */
-$emerald: rgba(35, 206, 107, 1);
-$redwood: rgba(173, 93, 78, 1);
-$pewter-blue: rgba(112, 160, 175, 1);
-$jet: rgba(48, 43, 39, 1);
-$cultured: rgba(245, 243, 245, 1);
+$color1: rgba(35, 206, 107, 1);
+$color2: rgba(173, 93, 78, 1);
+$color3: rgba(48, 107, 172, 1);
+$color4: #302b27;
+$color5: rgba(245, 243, 245, 1);
+$color6: rgba(61, 77, 94, 1);
+$color7: black;
 
-@import 'header';
+@import 'bigtimer';
+@import 'timerbank';
 @import 'stopwatch';
-@import 'addsection';
+@import 'footing';
 
 body {
     box-sizing: border-box;
-    background-color: $jet;
-    color: $cultured;
+    background-color: $color4;
+    color: $color5;
+    margin: 0;
 }
 
 body * {
@@ -24,8 +28,22 @@ p {
     margin: 0.5em;
 }
 
-#wrapper {
+#outer {
+    margin: 0;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    max-height: 100vh;
+}
+
+#main{
+    width: 70vw;
+    margin: 0;
+    max-height: 100vh;
+    display: flex;
+}
+
+#sidebar {
+    background: $color6;
+    width: 30vw;
+    overflow: auto;
+    max-height: 100vh;
 }
