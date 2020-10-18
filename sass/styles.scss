@@ -5,6 +5,7 @@ $pewter-blue: rgba(112, 160, 175, 1);
 $jet: rgba(48, 43, 39, 1);
 $cultured: rgba(245, 243, 245, 1);
 
+@import 'bigtimer';
 @import 'timerbank';
 @import 'stopwatch';
 @import 'footing';
@@ -35,10 +36,11 @@ p {
     width: 70vw;
     margin: 0;
     max-height: 100vh;
+    display: flex;
 }
 
 #sidebar {
-    border: 1px solid gray;
+    background: rgb(88, 88, 88);
     width: 30vw;
     overflow: auto;
     max-height: 100vh;

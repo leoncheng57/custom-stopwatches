@@ -13,7 +13,13 @@ mixin container(cn, name)
 block content
     div#outer
         div#main
-            p Main Timer
+            div#bigtimer
+                div.numeric 
+                    p 12:34:56
+                div.controls
+                    div.icon play icon
+                    div.icon pause icon
+                    div.icon reset icon
         div#sidebar
             div#timerbank
                 +container("hidden-stopwatch","template-stopwatch")

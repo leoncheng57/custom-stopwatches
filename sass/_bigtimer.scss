@@ -1,0 +1,24 @@
+#bigtimer {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 10px;
+    border: 1px dotted gray;
+
+    .numeric {
+        display: flex;
+
+        p {
+            margin: auto;
+            font-size: 100px;
+        }
+    }
+
+    .controls {
+        border: 1px solid gray;
+        .icon {
+            display: inline-block;
+            margin: 20px;
+        }
+    }
+}
