@@ -13,13 +13,15 @@ addbutton.addEventListener("click", () => {
 
 // Start out with these timers by default
 var timersList = [];
-timersList.push(new Timer("Task", 0, 5, 0, 0));
-timersList.push(new Timer("Duty", 0, 10, 0, 0));
-timersList.push(new Timer("Work", 0, 30, 0, 0));
-timersList.push(new Timer("Foo", 1, 0, 0, 0));
+var bigTimerText = document.getElementById("bigtimer-text");
+timersList.push(new Timer(bigTimerText, "Task", 0, 5, 0, 0));
+timersList.push(new Timer(bigTimerText, "Duty", 0, 10, 0, 0));
+timersList.push(new Timer(bigTimerText, "Work", 0, 30, 0, 0));
+timersList.push(new Timer(bigTimerText, "Foo", 1, 0, 0, 0));
 
-// Bigtimer by default
+// bigTimer by default
 var bigTimer = timersList[0];
+bigTimer.setAsBigTimer();
 
 // Set Listeners for Controls
 var playButton = document.getElementById("play");
@@ -34,5 +36,3 @@ pauseButton.addEventListener("click", () => {
 resetButton.addEventListener("click", () => {
     bigTimer.reset();
 })
-
-console.log(timersList[0]);

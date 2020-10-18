@@ -1,12 +1,14 @@
 console.log('loading time.js');
 
 class Timer {
-    constructor(title, hours, minutes, seconds, millis) {
+    constructor(bigTimerText, title, hours, minutes, seconds, millis) {
         this.startTime = null;
         this.duration = null;
         this.interval = null;
         this.running = false;
         this.timeElapsedStored = 0;
+        this.isBigTimer = false;
+        this.bigTimerText = bigTimerText;
 
         // Create a clone out of the hidden-stopwatch Node
         const containerOne = document.getElementsByClassName("hidden-stopwatch")[0];
@@ -28,6 +30,13 @@ class Timer {
     }
 
     // Public Methods
+    setAsBigTimer() {
+        this.isBigTimer = true;
+    }
+    unsetBigTimer(){
+        this.isBigTimer = false;
+    }
+
     setTime() {
         this.duration = millis + seconds*1000 + minutes*60*1000 + hours*60*60*1000;
         this.setDisplayTime(this.convertTimeToString(this.duration));
@@ -62,6 +71,10 @@ class Timer {
         this.setDisplayTime(this.convertTimeToString(this.duration));
     }
 
+    getDisplayTime() {
+        return this.convertTimeToString(this.duration);
+    }
+
     // Private Methods
     convertTimeToString(totalMillis) {
         const hours = Math.floor(totalMillis/(60*60*1000));
@@ -75,6 +88,10 @@ class Timer {
     }
 
     setDisplayTime(text) {
+        if (this.isBigTimer) {
+            // Set the bigTimer text to be the time
+            this.bigTimerText.innerHTML = text;
+        }
         this.displayTime.innerHTML = text;
     }
 
