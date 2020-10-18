@@ -5,9 +5,9 @@ $pewter-blue: rgba(112, 160, 175, 1);
 $jet: rgba(48, 43, 39, 1);
 $cultured: rgba(245, 243, 245, 1);
 
-@import 'header';
+@import 'timerbank';
 @import 'stopwatch';
-@import 'addsection';
+@import 'footing';
 
 body {
     box-sizing: border-box;
@@ -24,8 +24,17 @@ p {
     margin: 0.5em;
 }
 
-#wrapper {
+#outer {
+    margin: 0;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+}
+
+#main{
+    width: 70vw;
+    margin: 0;
+}
+
+#sidebar {
+    border: 1px solid gray;
+    width: 30vw;
 }

@@ -11,12 +11,17 @@ mixin container(cn, name)
 
 
 block content
-    div#header 
-        hr
-        p Custom Stopwatches
-        hr
-    div#wrapper
-        +container("hidden-stopwatch","template-stopwatch")
-    div#addsection
-        div#addcontainer
-            p#addbutton +
+    div#outer
+        div#main
+            p Main Timer
+        div#sidebar
+            div#timerbank
+                +container("hidden-stopwatch","template-stopwatch")
+            div#addsection
+                p (c) Leon Cheng
+                span Color1
+                span Color2
+                span Color3
+                span Color4
+                div#addcontainer
+                    p#addbutton +

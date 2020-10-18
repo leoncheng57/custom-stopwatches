@@ -1,14 +1,19 @@
 #addsection {
+  border: solid gray 1px;
   display: flex;
   align-items: center;
   justify-content: center;
 
+  span {
+    margin: 5px;
+  }
+
   #addcontainer {
     background-color: $pewter-blue;
     border-radius: 100%;
-    margin: 3em;
-    width: 8em;
-    height: 8em;
+    margin: 2em;
+    width: 3em;
+    height: 3em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,7 +22,7 @@
     box-shadow: 2px 2px 8px #888888;
 
     p {
-      font-size: 5em;
+      font-size: 2em;
     }
   }
 

@@ -10,10 +10,10 @@ class Timer {
 
         // Create a clone out of the hidden-stopwatch Node
         const containerOne = document.getElementsByClassName("hidden-stopwatch")[0];
-        const wrapper = document.getElementById("wrapper");
+        const timerbank = document.getElementById("timerbank");
         this.theStopwatch = containerOne.cloneNode(true);
         this.theStopwatch.className = "regular-stopwatch";
-        wrapper.appendChild(this.theStopwatch);
+        timerbank.appendChild(this.theStopwatch);
 
         // Make class variables out of the html components
         this.startButton = this.theStopwatch.getElementsByClassName("start")[0];
