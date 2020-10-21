@@ -1,0 +1,26 @@
+.controls {
+    display: flex;
+    width: 50%;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    top: 100px;
+    border-radius: 30px;
+    background-color: $color6;
+
+    .icon {
+        cursor: pointer;
+        width: 50px;
+        display: inline-block;
+        margin: 20px;
+        fill: $color5;
+    }
+    .icon:hover {
+        opacity: 0.5;
+    }
+    
+    .icon:active {  
+        background-color: $color3;
+    }
+}

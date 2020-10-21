@@ -35,5 +35,8 @@
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
     "webpack-livereload-plugin": "^2.3.0"
+  },
+  "devDependencies": {
+    "file-loader": "^6.1.1"
   }
 }

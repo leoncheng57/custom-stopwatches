@@ -1,16 +1,14 @@
 /* SCSS RGB */
-$color1: rgba(35, 206, 107, 1);
-$color2: rgba(173, 93, 78, 1);
+// $color1: rgba(35, 206, 107, 1);
+// $color2: rgba(173, 93, 78, 1);
 $color3: rgba(48, 107, 172, 1);
 $color4: #302b27;
 $color5: rgba(245, 243, 245, 1);
 $color6: rgba(61, 77, 94, 1);
 $color7: black;
 
-@import 'bigtimer';
-@import 'timerbank';
-@import 'stopwatch';
-@import 'footing';
+@import 'hero/hero';
+@import 'sidebar/sidebar';
 
 body {
     box-sizing: border-box;
@@ -23,7 +21,6 @@ body * {
     font-family: "Lato", sans-serif;
 }
 
-
 p {
     margin: 0.5em;
 }
@@ -31,19 +28,5 @@ p {
 #outer {
     margin: 0;
     display: flex;
-    max-height: 100vh;
-}
-
-#main{
-    width: 70vw;
-    margin: 0;
-    max-height: 100vh;
-    display: flex;
-}
-
-#sidebar {
-    background: $color6;
-    width: 30vw;
-    overflow: auto;
     max-height: 100vh;
 }

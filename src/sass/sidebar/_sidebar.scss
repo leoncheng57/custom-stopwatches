@@ -1,0 +1,10 @@
+@import 'timerbank/timerbank';
+@import 'timerbank/stopwatch';
+@import 'footing/footing';
+
+#sidebar {
+    background: $color6;
+    width: 30vw;
+    overflow: auto;
+    height: 100vh;
+}

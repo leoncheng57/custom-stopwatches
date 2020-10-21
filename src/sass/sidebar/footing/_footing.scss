@@ -1,0 +1,11 @@
+@import 'addContainer';
+@import 'copyright';
+@import 'colorsContainer';
+
+#footing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $color7;
+  height: 10vh;
+}
