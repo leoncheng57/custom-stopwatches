@@ -32,6 +32,7 @@ class Timer {
     // Public Methods
     setAsBigTimer() {
         this.isBigTimer = true;
+        this.setDisplayTime(this.convertTimeToString(this.duration));
     }
     unsetBigTimer(){
         this.isBigTimer = false;
