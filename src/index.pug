@@ -5,6 +5,10 @@ mixin singleTimer(cn, name)
         p.title= name 
         p.displayTime 00:00:00
 
+mixin play 
+    svg#play.icon(xmlns='http://www.w3.org/2000/svg' height='24' viewbox='0 0 24 24' width='24')
+        path(d='M0 0h24v24H0z' fill='none')
+        path(d='M8 5v14l11-7z')
 
 block content
     div#outer
@@ -13,8 +17,7 @@ block content
                 div.numeric 
                     p#bigtimer-text 12:34:56
                 div.controls
-                    div.icon#play play icon
-                        img(src="imgs/play.svg")
+                    +play
                     div.icon#pause pause icon
                     div.icon#reset reset icon
         div#sidebar
