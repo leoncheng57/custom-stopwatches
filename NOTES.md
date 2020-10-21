@@ -12,3 +12,21 @@ Set a variable in Sass depending on the selector
 - https://stackoverflow.com/questions/18112238/set-a-variable-in-sass-depending-on-the-selector
 - https://stackoverflow.com/questions/26260790/how-to-assign-to-a-global-variable-in-sass
 - https://stackoverflow.com/questions/44972807/scss-change-variable-depending-on-parent-class
+
+
+# Todos
+
+## Must-haves
+- [x] basic timer works
+- [x] multiple asynchronous timers can be running simultaneously
+- [x] play, pause, reset buttons
+- [x] basic mockup theme styling
+- [ ] implement add new timer button and custom time input
+- [ ] allow changing of which timer is the bigtimer 
+- [ ] visual and/or auditory signal when alarm is complete
+
+
+
+## Optional
+- [ ] Dark mode and other color themes
+- [ ] add stopwatches, not just timers

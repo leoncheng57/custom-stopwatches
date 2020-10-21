@@ -10,7 +10,7 @@ addbutton.addEventListener("click", () => {
 // Start out with these timers by default
 var timersList = [];
 var bigTimerText = document.getElementById("bigtimer-text");
-timersList.push(new Timer(bigTimerText, "Test", 0, 0, 5, 0));
+timersList.push(new Timer(bigTimerText, "Test", 0, 5, 0, 0));
 timersList.push(new Timer(bigTimerText, "Duty", 0, 2, 0, 0));
 timersList.push(new Timer(bigTimerText, "Work", 0, 30, 0, 0));
 timersList.push(new Timer(bigTimerText, "Foo", 1, 0, 0, 0));
