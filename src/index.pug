@@ -1,13 +1,9 @@
 extends layout
 
-mixin container(cn, name)
+mixin singleTimer(cn, name)
     div(class=cn)
         p.title= name 
         p.displayTime 00:00:00
-        //- div.timerButtons
-        //-     button.start Start
-        //-     button.stop Stop
-        //-     button.reset Reset
 
 
 block content
@@ -22,12 +18,13 @@ block content
                     div.icon#reset reset icon
         div#sidebar
             div#timerbank
-                +container("hidden-stopwatch","template-stopwatch")
+                +singleTimer("hidden-stopwatch","template-stopwatch")
             div#footing
-                p (c) Leon Cheng
-                span Color1
-                span $color2
-                span Color3
-                span Color4
-                div#addcontainer
+                a#copyright(href="http://leoncheng.dev/") (c) Leon Cheng
+                div#colorsContainer
+                    div.colorPad C1
+                    div.colorPad C2
+                    div.colorPad C3
+                    div.colorPad C4
+                div#addContainer
                     p#addbutton +
