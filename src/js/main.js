@@ -1,4 +1,4 @@
-const Timer = require('../js/time.js');
+const Timer = require('./time.js');
 
 // When you click on the + button, it initializes a new Timer object
 var addbutton = document.getElementById("addbutton");
