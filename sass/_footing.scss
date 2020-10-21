@@ -3,6 +3,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: $color7;
+  height: 10vh;
 
   // copyright
   #copyright {
@@ -31,7 +32,7 @@
   #addContainer {
     background-color: $color3;
     border-radius: 100%;
-    margin: 2em 3em 2em 0em;
+    margin-right: 3em;
     width: 3em;
     height: 3em;
     display: flex;
