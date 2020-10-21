@@ -1,0 +1,10 @@
+#colorsContainer {
+    display: flex;
+    .colorPad {
+        border: 1px solid gray;
+        border-radius: 5px;
+        padding: 1px;
+        margin: 5px;
+        cursor: pointer;
+    }
+}

@@ -1,56 +1,11 @@
+@import 'addContainer';
+@import 'copyright';
+@import 'colorsContainer';
+
 #footing {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: $color7;
   height: 10vh;
-
-  // copyright
-  #copyright {
-    color: $color5;
-    text-decoration: none;
-    margin-left: 40px;
-  }
-  #copyright:hover {
-    color: $color3;
-  }
-
-  // colorsContainer
-  #colorsContainer {
-    display: flex;
-    .colorPad {
-      border: 1px solid gray;
-      border-radius: 5px;
-      padding: 1px;
-      margin: 5px;
-      cursor: pointer;
-    }
-  }
-
-
-  // addContainer
-  #addContainer {
-    background-color: $color3;
-    border-radius: 100%;
-    margin-right: 3em;
-    width: 3em;
-    height: 3em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    cursor: pointer;
-
-    #addbutton {
-      font-size: 2em;
-    }
-  }
-
-  #addContainer:hover {
-    opacity: 0.7;
-  }
-
-  #addContainer:active {
-    box-shadow: inset 0px 0px 18px 8px rgb(197, 197, 197);
-  }
 }
