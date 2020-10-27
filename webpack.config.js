@@ -63,6 +63,9 @@ const config = {
     module: {
         rules: [pug, ts, scss, imgs]
     },
+    resolve: {
+        extensions: [ '.tsx', '.ts', '.js' ],
+    },
     plugins: [
         new LiveReloadPlugin({
             appendScriptTag: true
@@ -75,6 +78,7 @@ const config = {
             filename: "bundle.css"
         })
     ],
+    
     output: {
       path: path.resolve(__dirname, 'docs'),
       filename: '[name].js'

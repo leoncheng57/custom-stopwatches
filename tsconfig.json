@@ -2,6 +2,7 @@
     "compilerOptions": {
       "outDir": "./docs/",
       "noImplicitAny": true,
+      "noImplicitReturns": true,
       "module": "es6",
       "target": "es5",
       "allowSyntheticDefaultImports": true,
