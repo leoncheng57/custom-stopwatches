@@ -89,7 +89,7 @@ export default class Timer {
         const minutes = Math.floor(totalMillis/(60*1000));
         totalMillis = totalMillis - minutes*60*1000;
         const seconds = Math.floor(totalMillis/1000);
-        const remMillis = totalMillis % 1000;
+        // const remMillis = totalMillis % 1000;
         // return `${hours}:${minutes}:${seconds}:${remMillis}`;
         return `${hours}:${minutes}:${seconds}`;
     }
