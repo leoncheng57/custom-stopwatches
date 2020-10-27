@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "outDir": "./docs/",
+      "noImplicitAny": true,
+      "noImplicitReturns": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "pretty": true,
+      "module": "es6",
+      "target": "es5",
+      "allowJs": true
+    }
+}

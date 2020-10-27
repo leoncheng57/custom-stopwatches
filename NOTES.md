@@ -9,6 +9,8 @@ Draggable Elements That Push Others Out Of Way
 - https://css-tricks.com/draggable-elements-push-others-way/
 
 Set a variable in Sass depending on the selector
+- *https://medium.com/@dmitriy.borodiy/easy-color-theming-with-scss-bc38fd5734d1*
+
 - https://stackoverflow.com/questions/18112238/set-a-variable-in-sass-depending-on-the-selector
 - https://stackoverflow.com/questions/26260790/how-to-assign-to-a-global-variable-in-sass
 - https://stackoverflow.com/questions/44972807/scss-change-variable-depending-on-parent-class
@@ -21,8 +23,8 @@ Set a variable in Sass depending on the selector
 - [x] multiple asynchronous timers can be running simultaneously
 - [x] play, pause, reset buttons
 - [x] basic mockup theme styling
-- [ ] implement add new timer button and custom time input
 - [ ] allow changing of which timer is the bigtimer 
+- [ ] implement add new timer button and custom time input
 - [ ] visual and/or auditory signal when alarm is complete
 
 
@@ -30,3 +32,4 @@ Set a variable in Sass depending on the selector
 ## Optional
 - [ ] Dark mode and other color themes
 - [ ] add stopwatches, not just timers
+- [ ] Responsive (works for mobile too)

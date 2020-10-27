@@ -1,10 +1,25 @@
-console.log('loading time.js');
+console.log('loading time.ts');
 
-class Timer {
-    constructor(bigTimerText, title, hours, minutes, seconds, millis) {
-        this.startTime = null;
-        this.duration = null;
-        this.interval = null;
+export default class Timer {
+    startTime: Date;
+    duration: number;
+    intervalHolder: any;
+    running: boolean;
+    timeElapsedStored: number;
+    isBigTimer: boolean;
+    bigTimerText: HTMLElement;
+    theStopwatch: any;
+    displayTime: HTMLElement;
+    title: HTMLElement;
+
+    constructor(
+        bigTimerText: HTMLElement,
+        timerTitle: string,
+        hours: number,
+        minutes: number,
+        seconds: number,
+        millis: number) {
+
         this.running = false;
         this.timeElapsedStored = 0;
         this.isBigTimer = false;
@@ -22,7 +37,7 @@ class Timer {
         this.title = this.theStopwatch.getElementsByClassName("title")[0];
         
         // Set Title
-        this.title.innerHTML = title;
+        this.title.innerHTML = timerTitle;
 
         // Set Time
         this.duration = millis + seconds*1000 + minutes*60*1000 + hours*60*60*1000;
@@ -30,65 +45,56 @@ class Timer {
     }
 
     // Public Methods
-    setAsBigTimer() {
+    setAsBigTimer() : void {
         this.isBigTimer = true;
         this.setDisplayTime(this.convertTimeToString(this.duration));
     }
-    unsetBigTimer(){
+    unsetBigTimer() : void {
         this.isBigTimer = false;
     }
 
-    setTime() {
-        this.duration = millis + seconds*1000 + minutes*60*1000 + hours*60*60*1000;
-        this.setDisplayTime(this.convertTimeToString(this.duration));
-    }
-
-    setTitle(title) {
-        this.title.innerHTML = title;
-    }
-
-    play() {
+    play() : void{
         this.startTime = new Date();
         if (this.running == false){
             this.running = true;
-            this.interval = setInterval(() => {
+            this.intervalHolder = setInterval(() => {
                 this.updateTimer();}, 
                 100)
         }
     }
 
-    pause() {
+    pause() : void{
         if (this.running != false) {
             this.timeElapsedStored += this.getTimeElapsedSinceLastStart();
-            clearInterval(this.interval);
+            clearInterval(this.intervalHolder);
             this.running = false;
             this.startTime = null;
         }
     }
 
-    reset() {
+    reset() : void {
         this.pause();
         this.timeElapsedStored = 0;
         this.setDisplayTime(this.convertTimeToString(this.duration));
     }
 
-    getDisplayTime() {
+    getDisplayTime() : string {
         return this.convertTimeToString(this.duration);
     }
 
     // Private Methods
-    convertTimeToString(totalMillis) {
+    private convertTimeToString(totalMillis: number) : string {
         const hours = Math.floor(totalMillis/(60*60*1000));
         totalMillis = totalMillis - hours*60*60*1000;
         const minutes = Math.floor(totalMillis/(60*1000));
         totalMillis = totalMillis - minutes*60*1000;
         const seconds = Math.floor(totalMillis/1000);
-        const remMillis = totalMillis % 1000;
+        // const remMillis = totalMillis % 1000;
         // return `${hours}:${minutes}:${seconds}:${remMillis}`;
         return `${hours}:${minutes}:${seconds}`;
     }
 
-    setDisplayTime(text) {
+    private setDisplayTime(text: string) : void {
         if (this.isBigTimer) {
             // Set the bigTimer text to be the time
             this.bigTimerText.innerHTML = text;
@@ -96,18 +102,17 @@ class Timer {
         this.displayTime.innerHTML = text;
     }
 
-    getTimeElapsedSinceLastStart() {
+    private getTimeElapsedSinceLastStart() : number {
         const now = new Date();
-        const millisPassed = now - this.startTime;
+        const millisPassed = now.getTime() - this.startTime.getTime();
         return millisPassed;
     }
 
-    updateTimer() {
+    private updateTimer() : void {
         const timeElapsed = this.getTimeElapsedSinceLastStart() + this.timeElapsedStored;
         const timeRemaining = this.duration - timeElapsed;
         this.setDisplayTime(this.convertTimeToString(timeRemaining));
     }
 }
 
-module.exports = Timer;
 

@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -9,15 +8,10 @@ const pug = {
     use: ['html-loader', 'pug-html-loader']
 };
 
-const js = {
-    test: /\.js$/,
+const ts = {
+    test: /\.tsx?$/,
+    use: 'ts-loader',
     exclude: /(node_modules)/,
-    use: {
-        loader: 'babel-loader',
-        options: {
-            presets: ['@babel/preset-env']
-        }
-    }
 }
 
 const scss = {
@@ -50,19 +44,13 @@ const imgs = {
 }
 
 
-
-
 const config = {
-    entry: './src/app.js',
-    output: {
-      path: path.resolve(__dirname, 'docs'),
-      filename: '[name].js'
-    },
-    devServer: {
-        port: 3000,
-    },
+    entry: './src/app.ts',
     module: {
-      rules: [pug, js, scss, imgs]
+        rules: [pug, ts, scss, imgs]
+    },
+    resolve: {
+        extensions: [ '.tsx', '.ts', '.js' ],
     },
     plugins: [
         new LiveReloadPlugin({
@@ -75,7 +63,15 @@ const config = {
         new MiniCssExtractPlugin({
             filename: "bundle.css"
         })
-    ]
+    ],
+    
+    output: {
+      path: path.resolve(__dirname, 'docs'),
+      filename: '[name].js'
+    },
+    devServer: {
+        port: 3000,
+    }
 };
 
 module.exports = config;
