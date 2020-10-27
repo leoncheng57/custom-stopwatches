@@ -8,12 +8,12 @@ export default class Timer {
     timeElapsedStored: number;
     isBigTimer: boolean;
     bigTimerText: HTMLElement;
-    theStopwatch: any;
+    theHTMLObject: any;
     displayTime: HTMLElement;
     title: HTMLElement;
 
     constructor(
-        bigTimerText: HTMLElement,
+        updateBigTimer: Function,
         timerTitle: string,
         hours: number,
         minutes: number,
@@ -23,18 +23,18 @@ export default class Timer {
         this.running = false;
         this.timeElapsedStored = 0;
         this.isBigTimer = false;
-        this.bigTimerText = bigTimerText;
+        this.bigTimerText = document.getElementById("bigtimer-text");
 
         // Create a clone out of the hidden-stopwatch Node
         const containerOne = document.getElementsByClassName("hidden-stopwatch")[0];
         const timerbank = document.getElementById("timerbank");
-        this.theStopwatch = containerOne.cloneNode(true);
-        this.theStopwatch.className = "regular-stopwatch";
-        timerbank.appendChild(this.theStopwatch);
+        this.theHTMLObject = containerOne.cloneNode(true);
+        this.theHTMLObject.className = "regular-stopwatch";
+        timerbank.appendChild(this.theHTMLObject);
 
         // Make class variables out of the html components
-        this.displayTime = this.theStopwatch.getElementsByClassName("displayTime")[0];
-        this.title = this.theStopwatch.getElementsByClassName("title")[0];
+        this.displayTime = this.theHTMLObject.getElementsByClassName("displayTime")[0];
+        this.title = this.theHTMLObject.getElementsByClassName("title")[0];
         
         // Set Title
         this.title.innerHTML = timerTitle;
@@ -42,18 +42,25 @@ export default class Timer {
         // Set Time
         this.duration = millis + seconds*1000 + minutes*60*1000 + hours*60*60*1000;
         this.setDisplayTime(this.convertTimeToString(this.duration));
+
+        // Change bigTimer if this is clicked
+        this.theHTMLObject.addEventListener("click", () => {
+            console.log(this.title);
+            console.log("was clicked");
+            updateBigTimer(this);
+        })
     }
 
     // Public Methods
-    setAsBigTimer() : void {
+    public setAsBigTimer() : void {
         this.isBigTimer = true;
         this.setDisplayTime(this.convertTimeToString(this.duration));
     }
-    unsetBigTimer() : void {
+    public unsetBigTimer() : void {
         this.isBigTimer = false;
     }
 
-    play() : void{
+    public play() : void{
         this.startTime = new Date();
         if (this.running == false){
             this.running = true;
@@ -63,7 +70,7 @@ export default class Timer {
         }
     }
 
-    pause() : void{
+    public pause() : void{
         if (this.running != false) {
             this.timeElapsedStored += this.getTimeElapsedSinceLastStart();
             clearInterval(this.intervalHolder);
@@ -72,13 +79,13 @@ export default class Timer {
         }
     }
 
-    reset() : void {
+    public reset() : void {
         this.pause();
         this.timeElapsedStored = 0;
         this.setDisplayTime(this.convertTimeToString(this.duration));
     }
 
-    getDisplayTime() : string {
+    public getDisplayTime() : string {
         return this.convertTimeToString(this.duration);
     }
 
