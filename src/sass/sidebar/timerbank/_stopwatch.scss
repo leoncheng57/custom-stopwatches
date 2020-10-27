@@ -3,36 +3,60 @@
 }
 
 .regular-stopwatch {
-  display: inline-block;
+  display: flex;
+  height: 200px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   border-radius: 1.5em;
   margin: 2em auto;
   padding: 1em;
   width: 20em;
   background-color: $color3;
   color: $color5;
-}
+  cursor: pointer;
+  box-shadow: 2px 3px 5px rgb(70, 70, 70);
 
-.title {
-  font-size: 2em;
-  font-weight: 300;
-  text-align: center;
-}
-
-.displayTime {
-  font-size: 3em;
-  text-align: center;
-}
-
-.timerButtons {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-
-  button {
-    padding: 0.5em;
-    margin: 1em;
-    width: 5em;
+  .title {
+    font-size: 2em;
+    font-weight: 300;
+  }
+  
+  .displayTime {
+    font-size: 3em;
   }
 }
+
+.regular-stopwatch:hover {
+  opacity: 0.8;
+}
+
+
+.titleOnly {
+  background-color: $color4;
+  width: 100%;
+  margin: 0;
+  padding: 20px 0;
+  border-radius: 0;
+  cursor: inherit;
+  box-shadow: none;
+
+  .title {
+    font-size: 48px;
+    font-weight: 400;
+    padding: 20px 15%;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+  }
+
+  .displayTime {
+    display: none;
+  }
+}
+
+.titleOnly:hover {
+  opacity: 1.0;
+}
+
+
 
