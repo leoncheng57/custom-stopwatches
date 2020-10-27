@@ -1,4 +1,4 @@
-import Timer from './Time';
+import Timer from './time';
 
 // When you click on the + button, it initializes a new Timer object
 var addbutton = document.getElementById("addbutton");

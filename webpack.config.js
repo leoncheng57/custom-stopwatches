@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -8,17 +7,6 @@ const pug = {
     test: /\.pug$/,
     use: ['html-loader', 'pug-html-loader']
 };
-
-// const js = {
-//     test: /\.js$/,
-//     exclude: /(node_modules)/,
-//     use: {
-//         loader: 'babel-loader',
-//         options: {
-//             presets: ['@babel/preset-env']
-//         }
-//     }
-// }
 
 const ts = {
     test: /\.tsx?$/,
@@ -54,8 +42,6 @@ const imgs = {
         }
     ]
 }
-
-
 
 
 const config = {
