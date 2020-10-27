@@ -17,10 +17,10 @@
         fill: $color5;
     }
     .icon:hover {
-        opacity: 0.5;
+        opacity: 0.7;
     }
     
     .icon:active {  
-        background-color: $color3;
+        filter: drop-shadow( 0 0 10px $color5);
     }
 }
