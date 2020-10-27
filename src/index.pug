@@ -36,6 +36,18 @@ block content
         div#sidebar
             div#timerbank
                 +singleTimer("hidden-stopwatch","template-stopwatch")
+            div#modal
+                div#modalContent
+                    div#modalTitle
+                        input(placeholder="Title", type="text")
+                    div#modalTime
+                        input(placeholder="Hrs", type="number")
+                        span : 
+                        input(placeholder="Mins", type="number")
+                        span : 
+                        input(placeholder="Secs", type="number")
+                    div#modalButton 
+                        button Add
             div#footing
                 a#copyright(href="http://leoncheng.dev/") (c) Leon Cheng
                 div#colorsContainer
@@ -45,15 +57,3 @@ block content
                     div.colorPad C4
                 div#addContainer
                     p#addbutton +
-    div#modal
-        div#modalContent
-            div#modalTitle
-                input(placeholder="Title", type="text")
-            div#modalTime
-                input(placeholder="Hrs", type="number")
-                span : 
-                input(placeholder="Mins", type="number")
-                span : 
-                input(placeholder="Secs", type="number")
-            div#modalButton 
-                button Add
