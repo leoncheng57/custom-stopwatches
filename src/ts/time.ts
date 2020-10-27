@@ -45,8 +45,6 @@ export default class Timer {
 
         // Change bigTimer if this is clicked
         this.theHTMLObject.addEventListener("click", () => {
-            console.log(this.title);
-            console.log("was clicked");
             updateBigTimer(this);
         })
     }

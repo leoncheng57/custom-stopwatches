@@ -3,8 +3,6 @@ import Timer from './time';
 // Method to allow changing of bigTimer
 var bigTimer : Timer;
 var updateBigTimer : Function = (newBigTimer : Timer) : void => {
-    console.log(bigTimer);
-    console.log(newBigTimer);
     bigTimer.unsetBigTimer();
     bigTimer = newBigTimer;
     newBigTimer.setAsBigTimer();
@@ -20,7 +18,6 @@ timersList.push(new Timer(updateBigTimer, "Foo", 1, 0, 0, 0));
 // bigTimer by default
 bigTimer = timersList[0];
 bigTimer.setAsBigTimer();
-console.log(bigTimer);
 
 // Set Listeners for Controls
 const playButton:HTMLElement = document.getElementById("play");
