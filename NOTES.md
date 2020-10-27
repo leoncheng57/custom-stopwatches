@@ -32,3 +32,4 @@ Set a variable in Sass depending on the selector
 ## Optional
 - [ ] Dark mode and other color themes
 - [ ] add stopwatches, not just timers
+- [ ] Responsive (works for mobile too)
