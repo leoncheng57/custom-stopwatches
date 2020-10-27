@@ -52,10 +52,13 @@ export default class Timer {
     // Public Methods
     public setAsBigTimer() : void {
         this.isBigTimer = true;
+        this.theHTMLObject.classList.add("titleOnly");
         this.setDisplayTime(this.convertTimeToString(this.duration));
     }
+
     public unsetBigTimer() : void {
         this.isBigTimer = false;
+        this.theHTMLObject.classList.remove("titleOnly");
     }
 
     public play() : void{

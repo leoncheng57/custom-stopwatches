@@ -10,29 +10,22 @@
   width: 20em;
   background-color: $color3;
   color: $color5;
-}
 
-.title {
-  font-size: 2em;
-  font-weight: 300;
-  text-align: center;
-}
-
-.displayTime {
-  font-size: 3em;
-  text-align: center;
-}
-
-.timerButtons {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-
-  button {
-    padding: 0.5em;
-    margin: 1em;
-    width: 5em;
+  .title {
+    font-size: 2em;
+    font-weight: 300;
+    text-align: center;
+  }
+  
+  .displayTime {
+    font-size: 3em;
+    text-align: center;
   }
 }
+
+.titleOnly {
+  background-color: green;
+}
+
+
 
