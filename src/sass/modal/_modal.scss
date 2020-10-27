@@ -1,24 +1,32 @@
 #modal {
     display: flex;
     justify-content: center;
-    width: 50vw;
+    width: 30vw;
     padding: 20px;
     border: 1px solid gray;
     border-radius: 15px;
     margin: 40px auto;
+    background-color: $color3;
     
     input {
         color: $color5;
         text-align: center;
-        background-color: $color4;
+        background-color: $color3;
         border: none;
         font-size: 24px;
+    }
+
+    input::placeholder {
+        color: rgb(129, 171, 206);
     }
 
     #modalTitle {
         display: flex;
         justify-content: center;
         padding: 20px;
+        input {
+            font-weight: 300;
+        }
     }
 
     #modalTime {
@@ -26,7 +34,7 @@
         justify-content: center;
         padding: 20px;
         input {
-            width: 100px;
+            width: 150px;
         }
     }
 
@@ -35,10 +43,12 @@
         justify-content: center;
         padding: 20px;
         button {
-            background-color: $color3;
-            color: white;
+            background-color: $color5;
+            color: $color3;
             border: none;
             padding: 10px;
+            font-weight: 700;
+            font-size: 16px;
         }
     }
 }
