@@ -1,9 +1,9 @@
-const Timer = require('./time.js');
+import Timer from './time';
 
 // When you click on the + button, it initializes a new Timer object
 var addbutton = document.getElementById("addbutton");
 addbutton.addEventListener("click", () => {
-  new Timer("New").setTimer(0, 0, 0, 0);
+    new Timer(bigTimerText, "Test", 0, 5, 0, 0);
 })
 
 
