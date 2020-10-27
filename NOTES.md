@@ -28,10 +28,10 @@ Set a variable in Sass depending on the selector
 - [ ] visual and/or auditory signal when alarm is complete
 
 
-
 ## Optional
 - [ ] Dark mode and other color themes
-- [ ] add stopwatches, not just timers
 - [ ] Responsive (works for mobile too)
-- [ ] save in localStorage
+
 - [ ] filling up animation for timer
+- [ ] save in localStorage
+- [ ] add stopwatches, not just timers

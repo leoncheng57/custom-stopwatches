@@ -1,0 +1,44 @@
+#modal {
+    display: flex;
+    justify-content: center;
+    width: 50vw;
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 15px;
+    margin: 40px auto;
+    
+    input {
+        color: $color5;
+        text-align: center;
+        background-color: $color4;
+        border: none;
+        font-size: 24px;
+    }
+
+    #modalTitle {
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    #modalTime {
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+        input {
+            width: 100px;
+        }
+    }
+
+    #modalButton {
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+        button {
+            background-color: $color3;
+            color: white;
+            border: none;
+            padding: 10px;
+        }
+    }
+}
