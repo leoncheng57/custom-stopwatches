@@ -23,8 +23,8 @@ Set a variable in Sass depending on the selector
 - [x] multiple asynchronous timers can be running simultaneously
 - [x] play, pause, reset buttons
 - [x] basic mockup theme styling
-- [ ] allow changing of which timer is the bigtimer 
-- [ ] implement add new timer button and custom time input
+- [x] allow changing of which timer is the bigtimer 
+- [ ] implement add new timer button and custom time input, and delete timer
 - [ ] visual and/or auditory signal when alarm is complete
 
 
@@ -33,3 +33,5 @@ Set a variable in Sass depending on the selector
 - [ ] Dark mode and other color themes
 - [ ] add stopwatches, not just timers
 - [ ] Responsive (works for mobile too)
+- [ ] save in localStorage
+- [ ] filling up animation for timer
