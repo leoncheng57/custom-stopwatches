@@ -1,6 +1,5 @@
-// import Timer from './time';
-
-import Timer from "./time";
+import {Timer} from "./time";
+import {updateBigTimer} from "./main";
 
 // When you click on the + button, it initializes a new Timer object
 const addContainer:HTMLElement = document.getElementById("addContainer");
@@ -40,7 +39,7 @@ modalButton.addEventListener("click", () => {
                 break;
         }
     }
-    new Timer(() => {console.log('this should be updateBigTimer being called')}, Title, Hrs, Mins, Secs, 0);
+    new Timer(updateBigTimer, Title, Hrs, Mins, Secs, 0);
     // close modal
     document.getElementById("modal").classList.add("invisible");
 })

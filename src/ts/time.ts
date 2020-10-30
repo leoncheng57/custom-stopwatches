@@ -1,6 +1,6 @@
 console.log('loading time.ts');
 
-export default class Timer {
+class Timer {
     startTime: Date;
     duration: number;
     intervalHolder: any;
@@ -19,7 +19,7 @@ export default class Timer {
         minutes: number,
         seconds: number,
         millis: number) {
-
+            
         this.running = false;
         this.timeElapsedStored = 0;
         this.isBigTimer = false;
@@ -124,3 +124,4 @@ export default class Timer {
 }
 
 
+export {Timer};

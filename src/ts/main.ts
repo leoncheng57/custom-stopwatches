@@ -1,4 +1,4 @@
-import Timer from './time';
+import {Timer} from './time';
 
 // Method to allow changing of bigTimer
 var bigTimer : Timer;
@@ -31,3 +31,4 @@ resetButton.addEventListener("click", () => {
     bigTimer.reset();
 })
 
+export {updateBigTimer};
