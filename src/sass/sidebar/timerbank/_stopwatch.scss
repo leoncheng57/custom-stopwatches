@@ -11,7 +11,7 @@
   border-radius: 1.5em;
   margin: 2em auto;
   padding: 1em;
-  width: 20em;
+  width: 70%;
   background-color: $color3;
   color: $color5;
   cursor: pointer;
@@ -24,6 +24,14 @@
   
   .displayTime {
     font-size: 3em;
+  }
+
+  .deleteIcon {
+    fill: $color5;
+    width: 18px;
+  }
+  .deleteIcon:hover {
+    opacity: 0.5;
   }
 }
 
@@ -50,6 +58,10 @@
   }
 
   .displayTime {
+    display: none;
+  }
+
+  .deleteIcon {
     display: none;
   }
 }

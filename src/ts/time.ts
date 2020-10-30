@@ -1,6 +1,6 @@
 console.log('loading time.ts');
 
-export default class Timer {
+class Timer {
     startTime: Date;
     duration: number;
     intervalHolder: any;
@@ -11,6 +11,7 @@ export default class Timer {
     theHTMLObject: any;
     displayTime: HTMLElement;
     title: HTMLElement;
+    delete: HTMLElement;
 
     constructor(
         updateBigTimer: Function,
@@ -19,7 +20,7 @@ export default class Timer {
         minutes: number,
         seconds: number,
         millis: number) {
-
+            
         this.running = false;
         this.timeElapsedStored = 0;
         this.isBigTimer = false;
@@ -47,6 +48,10 @@ export default class Timer {
         this.theHTMLObject.addEventListener("click", () => {
             updateBigTimer(this);
         })
+
+        // Self-destroy if delete is clicked
+        this.delete = this.theHTMLObject.getElementsByClassName("deleteIcon")[0];
+        this.delete.addEventListener("click", (e) => {e.preventDefault(); this.destroy()});
     }
 
     // Public Methods
@@ -86,8 +91,9 @@ export default class Timer {
         this.setDisplayTime(this.convertTimeToString(this.duration));
     }
 
-    public getDisplayTime() : string {
-        return this.convertTimeToString(this.duration);
+    public destroy() : void {
+        this.theHTMLObject.remove();
+        this.unsetBigTimer();
     }
 
     // Private Methods
@@ -124,3 +130,4 @@ export default class Timer {
 }
 
 
+export {Timer};
