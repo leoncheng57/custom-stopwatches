@@ -51,7 +51,7 @@ class Timer {
 
         // Self-destroy if delete is clicked
         this.delete = this.theHTMLObject.getElementsByClassName("deleteIcon")[0];
-        this.delete.addEventListener("click", (e) => {e.preventDefault(); this.destroy()});
+        this.delete.addEventListener("click", (e) => {e.stopPropagation(); this.destroy()});
     }
 
     // Public Methods
