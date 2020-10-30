@@ -24,7 +24,7 @@ Set a variable in Sass depending on the selector
 - [x] play, pause, reset buttons
 - [x] basic mockup theme styling
 - [x] allow changing of which timer is the bigtimer 
-- [ ] implement add new timer button and custom time input, and delete timer
+- [x] implement add new timer button and custom time input, and delete timer
 - [ ] visual and/or auditory signal when alarm is complete
 
 
