@@ -19,6 +19,7 @@ $light-blue: rgb(129, 171, 206);
         .deleteIcon {
             fill: $color5;
             width: 18px;
+            cursor: pointer;
         }
         .deleteIcon:hover {
             opacity: 0.5;

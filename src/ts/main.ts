@@ -9,13 +9,12 @@ var updateBigTimer : Function = (newBigTimer : Timer) : void => {
 }
 
 // Start out with these timers by default
-var timersList:Timer[] = [];
-timersList.push(new Timer(updateBigTimer, "Short", 0, 2, 0, 0));
-timersList.push(new Timer(updateBigTimer, "Five", 0, 5, 0, 0));
+const t1 = new Timer(updateBigTimer, "Short", 0, 2, 0, 0);
+new Timer(updateBigTimer, "Five", 0, 5, 0, 0);
 // timersList.push(new Timer(updateBigTimer, "Break", 0, 30, 0, 0));
 
 // bigTimer by default
-bigTimer = timersList[0];
+bigTimer = t1;
 bigTimer.setAsBigTimer();
 
 // Set Listeners for Controls
@@ -30,15 +29,5 @@ pauseButton.addEventListener("click", () => {
 })
 resetButton.addEventListener("click", () => {
     bigTimer.reset();
-})
-
-// When you click on the + button, it initializes a new Timer object
-const addbutton:HTMLElement = document.getElementById("addbutton");
-addbutton.addEventListener("click", () => {
-    document.getElementById("modal").classList.remove("invisible");
-})
-const closeModal:HTMLElement = document.getElementById("closeModal");
-closeModal.addEventListener("click", () => {
-    document.getElementById("modal").classList.add("invisible");
 })
 
