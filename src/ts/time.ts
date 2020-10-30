@@ -11,6 +11,7 @@ class Timer {
     theHTMLObject: any;
     displayTime: HTMLElement;
     title: HTMLElement;
+    delete: HTMLElement;
 
     constructor(
         updateBigTimer: Function,
@@ -47,6 +48,10 @@ class Timer {
         this.theHTMLObject.addEventListener("click", () => {
             updateBigTimer(this);
         })
+
+        // Self-destroy if delete is clicked
+        this.delete = this.theHTMLObject.getElementsByClassName("deleteIcon")[0];
+        this.delete.addEventListener("click", (e) => {e.preventDefault(); this.destroy()});
     }
 
     // Public Methods
@@ -86,8 +91,9 @@ class Timer {
         this.setDisplayTime(this.convertTimeToString(this.duration));
     }
 
-    public getDisplayTime() : string {
-        return this.convertTimeToString(this.duration);
+    public destroy() : void {
+        this.theHTMLObject.remove();
+        this.unsetBigTimer();
     }
 
     // Private Methods
