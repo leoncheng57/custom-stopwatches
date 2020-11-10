@@ -78,12 +78,11 @@
 
 // Flashing
 .flashing {
-  animation: blinker 0.75s linear infinite;
+  animation: blinker 1s ease infinite;
 }
 
 @keyframes blinker {
   50% {
-    opacity: 0.5;
-    background-color: red;
+    background-color: rgb(221, 126, 126);
   }
 }

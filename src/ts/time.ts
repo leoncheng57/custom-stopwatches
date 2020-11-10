@@ -8,6 +8,7 @@ class Timer {
     timeElapsedStored: number;
     isBigTimer: boolean;
     bigTimerText: HTMLElement;
+    hero: HTMLElement;
     theHTMLObject: any;
     displayTime: HTMLElement;
     title: HTMLElement;
@@ -25,6 +26,7 @@ class Timer {
         this.timeElapsedStored = 0;
         this.isBigTimer = false;
         this.bigTimerText = document.getElementById("bigtimer-text");
+        this.hero = document.getElementById("hero");
 
         // Create a clone out of the hidden-stopwatch Node
         const containerOne = document.getElementsByClassName("hidden-stopwatch")[0];
@@ -67,6 +69,7 @@ class Timer {
     }
 
     public play() : void{
+        this.stopFlashing();
         this.startTime = new Date();
         if (this.running == false){
             this.running = true;
@@ -77,6 +80,7 @@ class Timer {
     }
 
     public pause() : void{
+        this.stopFlashing();
         if (this.running != false) {
             this.timeElapsedStored += this.getTimeElapsedSinceLastStart();
             clearInterval(this.intervalHolder);
@@ -86,6 +90,7 @@ class Timer {
     }
 
     public reset() : void {
+        this.stopFlashing();
         this.pause();
         this.timeElapsedStored = 0;
         this.setDisplayTime(this.convertTimeToString(this.duration));
@@ -125,14 +130,30 @@ class Timer {
     private updateTimer() : void {
         const timeElapsed = this.getTimeElapsedSinceLastStart() + this.timeElapsedStored;
         const timeRemaining = this.duration - timeElapsed;
-        this.setDisplayTime(this.convertTimeToString(timeRemaining));
         if (timeRemaining < 0) {
-            this.timerDone();
+            this.startFlashing();
+            this.setDisplayTime("DONE");
+        }
+        else {
+            this.setDisplayTime(this.convertTimeToString(timeRemaining));
         }
     }
 
-    private timerDone() : void {
+    private startFlashing() : void {
         this.theHTMLObject.classList.add("flashing");
+        if (this.isBigTimer) {
+            this.hero.classList.add("flashing");
+        }
+        else {
+            this.hero.classList.remove("flashing");
+        }
+    }
+
+    private stopFlashing() : void {
+        this.theHTMLObject.classList.remove("flashing");
+        if (this.isBigTimer) {
+            this.hero.classList.remove("flashing");
+        }
     }
 }
 
