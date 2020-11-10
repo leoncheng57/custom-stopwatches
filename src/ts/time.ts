@@ -60,6 +60,7 @@ class Timer {
         this.isBigTimer = true;
         this.theHTMLObject.classList.add("titleOnly");
         this.setDisplayTime(this.convertTimeToString(this.duration));
+        this.updateHeroFlashing();
     }
 
     public unsetBigTimer() : void {
@@ -140,15 +141,17 @@ class Timer {
     }
 
     private startFlashing() : void {
-        this.pause();
+        this.running = false;
+        this.startTime = null;
 
         this.theHTMLObject.classList.add("flashing");
-        if (this.isBigTimer) {
-            this.hero.classList.add("flashing");
-        }
-        else {
-            this.hero.classList.remove("flashing");
-        }
+        // if (this.isBigTimer) {
+        //     this.hero.classList.add("flashing");
+        // }
+        // else {
+        //     this.hero.classList.remove("flashing");
+        // }
+        this.updateHeroFlashing();
         
         let sound: HTMLMediaElement = <HTMLMediaElement>document.getElementById("audio");
         this.intervalHolder = setInterval(() => {
@@ -160,11 +163,19 @@ class Timer {
         clearInterval(this.intervalHolder);
 
         this.theHTMLObject.classList.remove("flashing");
-        if (this.isBigTimer) {
-            this.hero.classList.remove("flashing");
-        }
+        this.updateHeroFlashing();
+
         let sound: HTMLMediaElement = <HTMLMediaElement>document.getElementById("audio");
         sound.pause();
+    }
+
+    private updateHeroFlashing() : void {
+        if (this.isBigTimer && this.theHTMLObject.classList.contains("flashing")) {
+            this.hero.classList.add("flashing");
+        }
+        else {
+            this.hero.classList.remove("flashing");
+        }
     }
 
     private setupDeleteHandling() : void {
