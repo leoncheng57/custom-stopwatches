@@ -51,9 +51,8 @@ class Timer {
             updateBigTimer(this);
         })
 
-        // Self-destroy if delete is clicked
-        this.delete = this.theHTMLObject.getElementsByClassName("deleteIcon")[0];
-        this.delete.addEventListener("click", (e) => {e.stopPropagation(); this.destroy()});
+        // Delete handling
+        this.setupDeleteHandling();
     }
 
     // Public Methods
@@ -141,6 +140,8 @@ class Timer {
     }
 
     private startFlashing() : void {
+        this.pause();
+
         this.theHTMLObject.classList.add("flashing");
         if (this.isBigTimer) {
             this.hero.classList.add("flashing");
@@ -148,17 +149,35 @@ class Timer {
         else {
             this.hero.classList.remove("flashing");
         }
+        
         let sound: HTMLMediaElement = <HTMLMediaElement>document.getElementById("audio");
-        sound.play();
+        this.intervalHolder = setInterval(() => {
+            sound.play()}, 
+            100)
     }
 
     private stopFlashing() : void {
+        clearInterval(this.intervalHolder);
+
         this.theHTMLObject.classList.remove("flashing");
         if (this.isBigTimer) {
             this.hero.classList.remove("flashing");
         }
         let sound: HTMLMediaElement = <HTMLMediaElement>document.getElementById("audio");
         sound.pause();
+    }
+
+    private setupDeleteHandling() : void {
+        // Self-destroy if delete is clicked
+        this.delete = this.theHTMLObject.getElementsByClassName("deleteIcon")[0];
+        this.delete.addEventListener("click", (e) => {this.executeDelete(e)});
+    }
+
+    private executeDelete(e: Event) : void {
+        e.stopPropagation(); 
+        this.destroy();
+        this.stopFlashing();
+        console.log("TIMER DELETED");
     }
 }
 
