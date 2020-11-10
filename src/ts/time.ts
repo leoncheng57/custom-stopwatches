@@ -126,6 +126,13 @@ class Timer {
         const timeElapsed = this.getTimeElapsedSinceLastStart() + this.timeElapsedStored;
         const timeRemaining = this.duration - timeElapsed;
         this.setDisplayTime(this.convertTimeToString(timeRemaining));
+        if (timeRemaining < 0) {
+            this.timerDone();
+        }
+    }
+
+    private timerDone() : void {
+        this.theHTMLObject.classList.add("flashing");
     }
 }
 

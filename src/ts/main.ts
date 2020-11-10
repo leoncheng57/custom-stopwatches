@@ -9,7 +9,8 @@ var updateBigTimer : Function = (newBigTimer : Timer) : void => {
 }
 
 // Start out with these timers by default
-const t1 = new Timer(updateBigTimer, "Short", 0, 2, 0, 0);
+const t1 = new Timer(updateBigTimer, "Short", 0, 0, 3, 0);
+new Timer(updateBigTimer, "Two", 0, 2, 0, 0);
 new Timer(updateBigTimer, "Five", 0, 5, 0, 0);
 // timersList.push(new Timer(updateBigTimer, "Break", 0, 30, 0, 0));
 
