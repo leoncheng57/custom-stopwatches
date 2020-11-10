@@ -1,6 +1,11 @@
+// Hidden 
+
 .hidden-stopwatch {
   display: none;
 }
+
+
+// Regular
 
 .regular-stopwatch {
   display: flex;
@@ -39,6 +44,7 @@
   opacity: 0.8;
 }
 
+// Title Only
 
 .titleOnly {
   background-color: $color4;
@@ -70,5 +76,13 @@
   opacity: 1.0;
 }
 
+// Flashing
+.flashing {
+  animation: blinker 1s ease infinite;
+}
 
-
+@keyframes blinker {
+  50% {
+    background-color: rgb(221, 126, 126);
+  }
+}

@@ -8,6 +8,7 @@ class Timer {
     timeElapsedStored: number;
     isBigTimer: boolean;
     bigTimerText: HTMLElement;
+    hero: HTMLElement;
     theHTMLObject: any;
     displayTime: HTMLElement;
     title: HTMLElement;
@@ -25,6 +26,7 @@ class Timer {
         this.timeElapsedStored = 0;
         this.isBigTimer = false;
         this.bigTimerText = document.getElementById("bigtimer-text");
+        this.hero = document.getElementById("hero");
 
         // Create a clone out of the hidden-stopwatch Node
         const containerOne = document.getElementsByClassName("hidden-stopwatch")[0];
@@ -49,9 +51,8 @@ class Timer {
             updateBigTimer(this);
         })
 
-        // Self-destroy if delete is clicked
-        this.delete = this.theHTMLObject.getElementsByClassName("deleteIcon")[0];
-        this.delete.addEventListener("click", (e) => {e.preventDefault(); this.destroy()});
+        // Delete handling
+        this.setupDeleteHandling();
     }
 
     // Public Methods
@@ -59,6 +60,7 @@ class Timer {
         this.isBigTimer = true;
         this.theHTMLObject.classList.add("titleOnly");
         this.setDisplayTime(this.convertTimeToString(this.duration));
+        this.updateHeroFlashing();
     }
 
     public unsetBigTimer() : void {
@@ -67,6 +69,7 @@ class Timer {
     }
 
     public play() : void{
+        this.stopFlashing();
         this.startTime = new Date();
         if (this.running == false){
             this.running = true;
@@ -77,6 +80,7 @@ class Timer {
     }
 
     public pause() : void{
+        this.stopFlashing();
         if (this.running != false) {
             this.timeElapsedStored += this.getTimeElapsedSinceLastStart();
             clearInterval(this.intervalHolder);
@@ -86,6 +90,7 @@ class Timer {
     }
 
     public reset() : void {
+        this.stopFlashing();
         this.pause();
         this.timeElapsedStored = 0;
         this.setDisplayTime(this.convertTimeToString(this.duration));
@@ -125,7 +130,65 @@ class Timer {
     private updateTimer() : void {
         const timeElapsed = this.getTimeElapsedSinceLastStart() + this.timeElapsedStored;
         const timeRemaining = this.duration - timeElapsed;
-        this.setDisplayTime(this.convertTimeToString(timeRemaining));
+        if (timeRemaining < 0) {
+            // Handle Timer Done
+            this.startFlashing();
+            this.setDisplayTime("DONE");
+        }
+        else {
+            this.setDisplayTime(this.convertTimeToString(timeRemaining));
+        }
+    }
+
+    private startFlashing() : void {
+        this.running = false;
+        this.startTime = null;
+
+        this.theHTMLObject.classList.add("flashing");
+        // if (this.isBigTimer) {
+        //     this.hero.classList.add("flashing");
+        // }
+        // else {
+        //     this.hero.classList.remove("flashing");
+        // }
+        this.updateHeroFlashing();
+        
+        let sound: HTMLMediaElement = <HTMLMediaElement>document.getElementById("audio");
+        this.intervalHolder = setInterval(() => {
+            sound.play()}, 
+            100)
+    }
+
+    private stopFlashing() : void {
+        clearInterval(this.intervalHolder);
+
+        this.theHTMLObject.classList.remove("flashing");
+        this.updateHeroFlashing();
+
+        let sound: HTMLMediaElement = <HTMLMediaElement>document.getElementById("audio");
+        sound.pause();
+    }
+
+    private updateHeroFlashing() : void {
+        if (this.isBigTimer && this.theHTMLObject.classList.contains("flashing")) {
+            this.hero.classList.add("flashing");
+        }
+        else {
+            this.hero.classList.remove("flashing");
+        }
+    }
+
+    private setupDeleteHandling() : void {
+        // Self-destroy if delete is clicked
+        this.delete = this.theHTMLObject.getElementsByClassName("deleteIcon")[0];
+        this.delete.addEventListener("click", (e) => {this.executeDelete(e)});
+    }
+
+    private executeDelete(e: Event) : void {
+        e.stopPropagation(); 
+        this.destroy();
+        this.stopFlashing();
+        console.log("TIMER DELETED");
     }
 }
 

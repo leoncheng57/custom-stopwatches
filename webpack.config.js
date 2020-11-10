@@ -43,11 +43,22 @@ const imgs = {
     ]
 }
 
+const mp3 = {
+    test: /\.mp3$/,
+    use: [
+        {
+            loader: "file-loader",
+            options: {
+                outputPath: 'sounds'
+            }
+        }
+    ]
+}
 
 const config = {
     entry: './src/app.ts',
     module: {
-        rules: [pug, ts, scss, imgs]
+        rules: [pug, ts, scss, mp3, imgs]
     },
     resolve: {
         extensions: [ '.tsx', '.ts', '.js' ],
