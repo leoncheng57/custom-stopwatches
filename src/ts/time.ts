@@ -131,6 +131,7 @@ class Timer {
         const timeElapsed = this.getTimeElapsedSinceLastStart() + this.timeElapsedStored;
         const timeRemaining = this.duration - timeElapsed;
         if (timeRemaining < 0) {
+            // Handle Timer Done
             this.startFlashing();
             this.setDisplayTime("DONE");
         }
@@ -147,6 +148,8 @@ class Timer {
         else {
             this.hero.classList.remove("flashing");
         }
+        let sound: HTMLMediaElement = <HTMLMediaElement>document.getElementById("audio");
+        sound.play();
     }
 
     private stopFlashing() : void {
@@ -154,6 +157,8 @@ class Timer {
         if (this.isBigTimer) {
             this.hero.classList.remove("flashing");
         }
+        let sound: HTMLMediaElement = <HTMLMediaElement>document.getElementById("audio");
+        sound.pause();
     }
 }
 
