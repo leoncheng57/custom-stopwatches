@@ -1,4 +1,4 @@
-# custom-stopwatches
+# custom-timers
 
 ## Description
 
