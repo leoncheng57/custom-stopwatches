@@ -26,7 +26,7 @@ Set a variable in Sass depending on the selector
 - [x] allow changing of which timer is the bigtimer 
 - [x] implement add new timer button and custom time input, and delete timer
     - [x] BUG! If you click on delete a timer, it will switch to that timer before deleting it
-- [ ] visual and/or auditory signal when alarm is complete
+- [x] visual and/or auditory signal when alarm is complete
 
 
 ## Optional
